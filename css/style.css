@@ -16,3 +16,7 @@ body {
     align-items: center;
     gap: 1em;
 }
+
+#afficherPoints {
+    text-align: center;
+}
