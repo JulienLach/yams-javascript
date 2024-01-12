@@ -28,11 +28,17 @@ function displayDice(dice) {
 displayDice(dice)
 
 
+// liste des dés conservés
+let diceConserves = [2, 4, 2, 6, 2]
+
+
+
+
 // FONCTION 1 EXERCICE 2
 
+function calculatePoints(operation, diceConserves) {
 
-
-
+}
 
 let points = {
     'Total 1': 5,
