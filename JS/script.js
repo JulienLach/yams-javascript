@@ -1,5 +1,3 @@
-let des = [1, 2, 3, 4, 5, 6];
-
 // FONCTION 1 EXERCICE 1
 function rollTheDice() {
     let dice = [];
@@ -9,15 +7,16 @@ function rollTheDice() {
     }
     return dice;
 }
-let dice = rollTheDice();
-console.log("Résultat du lancer de dés :", dice);
+let des = rollTheDice();
+console.log("Résultat du lancer de dés :", des);
 
 
 // FONCTION 2 EXERCICE 1
 function reRollTheDice(des) {
-    let dice = des.map(() => Math.floor(Math.random() * 6) + 1).slice(1);
+    let dice = des.map(() => Math.floor(Math.random() * 6) + 1);
     return dice;
 }
+let dice = reRollTheDice(des);
 console.log("Nouveau jet de des : ", reRollTheDice(des));
 
 
