@@ -1,4 +1,6 @@
-// FONCTION 1 EXERCICE 1
+///////////////////// EXERCICE 1 //////////////////////
+
+// Fonction 1 Premier lancé
 function rollTheDice() {
     let dice = [];
     for (let i = 0; i < 5; i++) {
@@ -10,8 +12,7 @@ function rollTheDice() {
 let des = rollTheDice();
 console.log("Résultat du lancer de dés :", des);
 
-
-// FONCTION 2 EXERCICE 1
+// Fonction 2 Relance des dés
 function reRollTheDice(des) {
     let dice = des.map(() => Math.floor(Math.random() * 6) + 1);
     return dice;
@@ -19,9 +20,7 @@ function reRollTheDice(des) {
 let dice = reRollTheDice(des);
 console.log("Nouveau jet de des : ", dice);
 
-
-// // FONCTION 3 EXERCICE 1
-
+// Fonction 3 Afficher les dés
 function displayDice(dice) {
     document.getElementById("afficherDes").textContent = dice.join(' ')
 }
@@ -30,11 +29,10 @@ displayDice(dice)
 
 ///////////////////// EXERCICE 2 //////////////////////
 
-
 // Liste des dés conservés
-let diceConserves = [2, 4, 2, 6, 2]
+let diceConserves = displayDice(dice)
 
-// FONCTION 1 EXERCICE 2
+// Fonction 1 Exercice 2 calculer les points
 function calculePoints(operation, diceConserves) {
     let total = 0;
 
@@ -122,10 +120,28 @@ function calculePoints(operation, diceConserves) {
     return total;
 }
 
-let totalPoints = calculePoints("Yams", [6, 6, 6, 6, 6]);
+let totalPoints = calculePoints("Total 1", diceConserves);
+
+let sommesDesPoints
 console.log("Total des points : " + totalPoints);
 
-/////////////
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Réussir à chopper tous les totaux et créer un objets points qui contient tous ces totaux
+
+
+// Fonction 2 Exercice 2
 
 let points = {
     'Total 1': 5,
@@ -145,14 +161,10 @@ let points = {
 };
 
 
-
-
-// FONCTION 2 EXERCICE 2
-
 function displayPoints() {
     // Formater l'objet point en chaine de caratères avec l'objet global Object.
     let resultatsOperations = Object.entries(points).map(([key, value]) => `${key} : ${value}`).join(' \n');
-    document.getElementById("afficherPoints").textContent = resultatsOperations;
+    document.getElementById("afficherRepartitionPoints").textContent = resultatsOperations;
 }
 displayPoints();
 
