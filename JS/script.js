@@ -21,13 +21,11 @@ function reRollTheDice(des) {
         let diceValue = dice[i]; // Parcourir le tableau des dés relancé pour récupérer la valeur
         let imgSource = `img/${diceValue}.png`; // Si valeur dé = 1 alors => 1.png
 
-        // Create an image element
         let imgElement = document.createElement("img"); // créer l'élément img
-        imgElement.src = imgSource; // assigner la source de l'image
-
-        // Append the image element to the diceContainer
-        diceContainer.appendChild(imgElement);
+        imgElement.src = imgSource; // Assigner la source de l'image à l'élément
+        diceContainer.appendChild(imgElement); // Attacher l'élément au container des dés
     }
+
     return dice;
 }
 let dice = reRollTheDice(des);
@@ -180,8 +178,8 @@ displayPoints();
 
 
 // Fonction 3 Exercice 2 Calcul du bonus et si bonus ajout au total des points
-function checkBonus(points) {
-    let sum = Object.values(points).reduce((acc, val) => acc + val, 0);
+function checkBonus(points) { //
+    let sum = points["Total 1"] + points["Total 2"] + points["Total 3"] + points["Total 4"] + points["Total 5"] + points["Total 6"];
     if (sum > 63) {
         points['Bonus'] = 35;
     } else {
@@ -195,7 +193,7 @@ displayPoints(); // Afficher les points à jour si un bonus se rajoute après le
 
 // Fonction 4 Exercice 2 Afficher la somme du total des points
 function displayScore(points) {
-    let sum = Object.values(points).reduce((acc, val) => acc + val, 0);
+    let sum = Object.values(points).reduce((acc, val) => acc + val, 0); // La méthode Object.entries() renvoie un tableau des propriétés propres énumérables d'un objet dont la clé est une chaîne de caractères, sous la forme de paires [clé, valeur],
     console.log("Sommes des points : " + sum)
     document.getElementById("sommePoints").textContent = ("Somme des points : " + sum);
 }
