@@ -1,3 +1,8 @@
+// RESTE A FAIRE, assigner le résultat du lancé de dé à une opération et assigner le score de cette opération au total
+// Laisser la fonction de calcul globale pour récupéré la valeur de l'opération choisie avec le boutton
+// => lancé de dé  => afficher uniquement les bouttons qui peuvent prendre l'opération => mettre à jour le score
+
+
 ///////////////////// EXERCICE 1 //////////////////////
 
 // Fonction 1 Premier lancé
