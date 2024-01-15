@@ -1,7 +1,7 @@
-// RESTE A FAIRE, assigner le résultat du lancé de dé à une opération et assigner le score de cette opération au total
+// A FAIRE, assigner le résultat du lancé de dé à une opération et assigner le score de cette opération au total
 // Laisser la fonction de calcul globale pour récupéré la valeur de l'opération choisie avec le boutton
 // => lancé de dé  => afficher uniquement les bouttons qui peuvent prendre l'opération => mettre à jour le score
-
+// une fois que j'ai affecté mon résultat à une ligne je désactive le boutton correspondant
 
 ///////////////////// EXERCICE 1 //////////////////////
 
@@ -30,7 +30,6 @@ function reRollTheDice(des) {
         imgElement.src = imgSource; // Assigner la source de l'image à l'élément
         diceContainer.appendChild(imgElement); // Attacher l'élément au container des dés
     }
-
     return dice;
 }
 let dice = reRollTheDice(des);
@@ -150,6 +149,9 @@ let petiteSuite = calculePoints("Petite Suite", diceConserves)
 let grandeSuite = calculePoints("Grande Suite", diceConserves)
 let yams = calculePoints("Yams", diceConserves)
 let chance = calculePoints("Chance", diceConserves)
+
+
+// Fonction afficher les bouton qui sont affectable avec le résultat des dés, visibility hidden pour les bouton
 
 
 // Créer l'objet points avec en clés les opérations et en valeur les valeurs des totaux de chaque opération
