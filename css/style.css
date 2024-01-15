@@ -17,6 +17,8 @@ body {
     gap: 1em;
 }
 
-#afficherPoints {
-    text-align: center;
+#afficherRepartitionPoints {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
 }

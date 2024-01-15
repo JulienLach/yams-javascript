@@ -93,7 +93,7 @@ function calculePoints(operation, diceConserves) {
         const uniqueValues = new Set(dice);
         if (uniqueValues.size === 5 && (uniqueValues.has(2) || uniqueValues.has(3))) {
             total = 40;
-        } g
+        }
     }
 
     if (operation === "Yams") {
@@ -120,22 +120,32 @@ function calculePoints(operation, diceConserves) {
     return total;
 }
 
-let totalPoints = calculePoints("Total 1", diceConserves);
-
-let sommesDesPoints
-console.log("Total des points : " + totalPoints);
-
-
-
-
-
-
-
-
-
-
+let total1 = calculePoints("Total 1", diceConserves);
+let total2 = calculePoints("Total 2", diceConserves)
+let total3 = calculePoints("Total 3", diceConserves)
+let total4 = calculePoints("Total 4", diceConserves)
+let total5 = calculePoints("Total 5", diceConserves)
+let total6 = calculePoints("Total 6", diceConserves)
+let brelan = calculePoints("Brelan", diceConserves)
+let carre = calculePoints("Carré", diceConserves)
+let full = calculePoints("Full", diceConserves)
+let petiteSuite = calculePoints("Petite Suite", diceConserves)
+let grandeSuite = calculePoints("Grande Suite", diceConserves)
+let yams = calculePoints("Yams", diceConserves)
 
 
+console.log("Total des dés 1 : " + total1);
+console.log("Total des dés 2 : " + total2);
+console.log("Total des dés 3 : " + total3);
+console.log("Total des dés 4 : " + total4);
+console.log("Total des dés 5 : " + total5);
+console.log("Total des dés 6 : " + total6);
+console.log("Total Brelan : " + brelan * 3);
+console.log("Total Carré : " + carre * 4);
+console.log("Total Full : " + full);
+console.log("Total Petite Suite : " + petiteSuite);
+console.log("Total Grande Suite : " + grandeSuite);
+console.log("Total Yams : " + yams);
 
 
 // Réussir à chopper tous les totaux et créer un objets points qui contient tous ces totaux
@@ -144,18 +154,18 @@ console.log("Total des points : " + totalPoints);
 // Fonction 2 Exercice 2
 
 let points = {
-    'Total 1': 5,
-    'Total 2': 10,
-    'Total 3': 2,
-    'Total 4': 0,
-    'Total 5': 99,
-    'Total 6': 12,
-    'Brelan': 9,
-    'Carré': 2,
-    'Full': 0,
-    'Petite Suite': 0,
-    'Grande Suite': 12,
-    'Yams': 0,
+    'Total 1': total1,
+    'Total 2': total2,
+    'Total 3': total3,
+    'Total 4': total4,
+    'Total 5': total5,
+    'Total 6': total6,
+    'Brelan': brelan,
+    'Carré': carre,
+    'Full': full,
+    'Petite Suite': petiteSuite,
+    'Grande Suite': grandeSuite,
+    'Yams': yams,
     'Chance': 0,
     'Bonus': 0
 };
@@ -163,8 +173,8 @@ let points = {
 
 function displayPoints() {
     // Formater l'objet point en chaine de caratères avec l'objet global Object.
-    let resultatsOperations = Object.entries(points).map(([key, value]) => `${key} : ${value}`).join(' \n');
-    document.getElementById("afficherRepartitionPoints").textContent = resultatsOperations;
+    let resultatsOperations = Object.entries(points).map(([key, value]) => `${key} : ${value}<br>`).join(' \n');
+    document.getElementById("afficherRepartitionPoints").innerHTML = resultatsOperations;
 }
 displayPoints();
 
