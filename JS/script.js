@@ -151,8 +151,49 @@ let yams = calculePoints("Yams", diceConserves)
 let chance = calculePoints("Chance", diceConserves)
 
 
-// Fonction afficher les bouton qui sont affectable avec le résultat des dés, visibility hidden pour les bouton
-
+// Fonction afficher les bouton qui sont affectable avec le résultat des dés, visibility hidden pour les boutons
+function afficherBoutons() {
+    if (total1 === 0) {
+        document.getElementById("total1").style.visibility = "hidden";
+    }
+    if (total2 === 0) {
+        document.getElementById("total2").style.visibility = "hidden";
+    }
+    if (total3 === 0) {
+        document.getElementById("total3").style.visibility = "hidden";
+    }
+    if (total4 === 0) {
+        document.getElementById("total4").style.visibility = "hidden";
+    }
+    if (total5 === 0) {
+        document.getElementById("total5").style.visibility = "hidden";
+    }
+    if (total6 === 0) {
+        document.getElementById("total6").style.visibility = "hidden";
+    }
+    if (brelan === 0) {
+        document.getElementById("brelan").style.visibility = "hidden";
+    }
+    if (carre === 0) {
+        document.getElementById("carre").style.visibility = "hidden";
+    }
+    if (full === 0) {
+        document.getElementById("full").style.visibility = "hidden";
+    }
+    if (petiteSuite === 0) {
+        document.getElementById("petite-suite").style.visibility = "hidden";
+    }
+    if (grandeSuite === 0) {
+        document.getElementById("grande-suite").style.visibility = "hidden";
+    }
+    if (yams === 0) {
+        document.getElementById("yams").style.visibility = "hidden";
+    }
+    if (chance === 0) {
+        document.getElementById("chance").style.visibility = "hidden";
+    }
+}
+afficherBoutons();
 
 // Créer l'objet points avec en clés les opérations et en valeur les valeurs des totaux de chaque opération
 let points = {
