@@ -95,7 +95,7 @@ function calculePoints(operation, diceConserves) {
         const uniqueValues = new Set(dice);
         if (uniqueValues.size === 5 && (uniqueValues.has(2) || uniqueValues.has(3))) {
             total = 40;
-        }
+        } g
     }
 
     if (operation === "Yams") {
