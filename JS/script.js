@@ -134,7 +134,6 @@ let grandeSuite = calculePoints("Grande Suite", diceConserves)
 let yams = calculePoints("Yams", diceConserves)
 let chance = calculePoints("Chance", diceConserves)
 
-
 console.log("Total des dés 1 : " + total1);
 console.log("Total des dés 2 : " + total2);
 console.log("Total des dés 3 : " + total3);
@@ -150,8 +149,7 @@ console.log("Total Yams : " + yams);
 console.log("Total Chance : " + chance);
 
 
-
-// Fonction 2 Exercice 2
+// Fonction 2 Exercice 2 Afficher les points sur la page HTML
 let points = {
     'Total 1': total1,
     'Total 2': total2,
@@ -170,8 +168,6 @@ let points = {
 };
 console.log(points)
 
-
-// Fonction 3 Exercice 2 Afficher les points sur la page HTML
 function displayPoints() {
     // Formater l'objet points en chaine de caratères avec l'objet global Object.
     let resultatsOperations = Object.entries(points).map(([key, value]) => `${key} : ${value}<br>`).join(" ");
@@ -180,7 +176,7 @@ function displayPoints() {
 displayPoints();
 
 
-// Fonction 3 Exercice 2 Calcul du bonus
+// Fonction 3 Exercice 2 Calcul du bonus et si bonus ajout au total des points
 function checkBonus(points) {
     const sum = points['Total 1'] + points['Total 2'] + points['Total 3'] +
         points['Total 4'] + points['Total 5'] + points['Total 6'] + points['Brelan'] + points['Carré'] + points['Full'] + points['Petite Suite'] + points['Grande Suite'] + points['Yams'] + points['Chance'] + points['Bonus'];
@@ -192,13 +188,12 @@ function checkBonus(points) {
     return points;
 }
 checkBonus(points);
-displayPoints(); // afficher les points à jour
+displayPoints(); // afficher les points à jour si un bonus se rajoute après le calcul
 
 
-// FONCTION 4 EXERCICE 2
+// Fonction 4 Exercice 2 Afficher la somme du total des points
 function displayScore(points) {
     let sum = 0;
-
     for (let operations in points) {
         if (typeof points[operations] === 'number') {
             sum += points[operations];
@@ -206,6 +201,5 @@ function displayScore(points) {
     }
     console.log("Sommes des points : " + sum)
     document.getElementById("sommePoints").textContent = ("Somme des points : " + sum);
-
 }
 displayScore(points);
