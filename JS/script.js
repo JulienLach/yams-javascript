@@ -32,7 +32,9 @@ displayDice(dice)
 // Liste des dés conservés
 let diceConserves = displayDice(dice)
 
-// Fonction 1 Exercice 2 calculer les points
+// Trouver comment passer l'opération en paramètre dans la fonction
+
+// Fonction 1 Exercice 2 calculer les points --- à réécrire
 function calculePoints(operation, diceConserves) {
     let total = 0;
 
@@ -150,6 +152,7 @@ console.log("Total Chance : " + chance);
 
 
 // Fonction 2 Exercice 2 Afficher les points sur la page HTML
+// Créer l'objet points avec en clés les opérations et en valeur les valeurs des totaux de chaque opération
 let points = {
     'Total 1': total1,
     'Total 2': total2,
@@ -178,8 +181,7 @@ displayPoints();
 
 // Fonction 3 Exercice 2 Calcul du bonus et si bonus ajout au total des points
 function checkBonus(points) {
-    const sum = points['Total 1'] + points['Total 2'] + points['Total 3'] +
-        points['Total 4'] + points['Total 5'] + points['Total 6'] + points['Brelan'] + points['Carré'] + points['Full'] + points['Petite Suite'] + points['Grande Suite'] + points['Yams'] + points['Chance'] + points['Bonus'];
+    let sum = Object.values(points).reduce((acc, val) => acc + val, 0);
     if (sum > 63) {
         points['Bonus'] = 35;
     } else {
@@ -188,17 +190,12 @@ function checkBonus(points) {
     return points;
 }
 checkBonus(points);
-displayPoints(); // afficher les points à jour si un bonus se rajoute après le calcul
+displayPoints(); // Afficher les points à jour si un bonus se rajoute après le calcul en rappelant la fonction
 
 
 // Fonction 4 Exercice 2 Afficher la somme du total des points
 function displayScore(points) {
-    let sum = 0;
-    for (let operations in points) {
-        if (typeof points[operations] === 'number') {
-            sum += points[operations];
-        }
-    }
+    let sum = Object.values(points).reduce((acc, val) => acc + val, 0);
     console.log("Sommes des points : " + sum)
     document.getElementById("sommePoints").textContent = ("Somme des points : " + sum);
 }
