@@ -28,17 +28,104 @@ function displayDice(dice) {
 displayDice(dice)
 
 
-// liste des dés conservés
+///////////////////// EXERCICE 2 //////////////////////
+
+
+// Liste des dés conservés
 let diceConserves = [2, 4, 2, 6, 2]
 
-
-
-
 // FONCTION 1 EXERCICE 2
+function calculePoints(operation, diceConserves) {
+    let total = 0;
 
-function calculatePoints(operation, diceConserves) {
+    if (operation.startsWith("Total ")) {
+        const targetValue = parseInt(operation.split(" ")[1]);
+        total = dice.filter(value => value === targetValue).reduce((acc, value) => acc + value, 0);
+    }
 
+    if (operation === "Brelan") {
+        function hasBrelan(dice) {
+            const uniqueValues = new Set(dice);
+            for (const value of uniqueValues) {
+                const occurrences = dice.filter(element => element === value);
+                if (occurrences.length >= 3) {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        if (hasBrelan(dice)) {
+            total = dice.reduce((acc, value) => acc + value, 0);
+        }
+    }
+
+    if (operation === "Carré") {
+        function hasCarré(dice) {
+            const uniqueValues = new Set(dice);
+            for (const value of uniqueValues) {
+                const occurrences = dice.filter(element => element === value);
+                if (occurrences.length >= 4) {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        if (hasCarré(dice)) {
+            total = dice.reduce((acc, value) => acc + value, 0);
+        }
+    }
+
+    if (operation === "Full") {
+        const uniqueValues = new Set(dice);
+        if (uniqueValues.size === 2) {
+            total = 25;
+        }
+    }
+
+    if (operation === "Petite Suite") {
+        const uniqueValues = new Set(dice);
+        if (uniqueValues.size === 5 && (uniqueValues.has(1) || uniqueValues.has(2))) {
+            total = 30;
+        }
+    }
+
+    if (operation === "Grande Suite") {
+        const uniqueValues = new Set(dice);
+        if (uniqueValues.size === 5 && (uniqueValues.has(2) || uniqueValues.has(3))) {
+            total = 40;
+        }
+    }
+
+    if (operation === "Yams") {
+        function hasYams(dice) {
+            const uniqueValues = new Set(dice);
+            for (const value of uniqueValues) {
+                const occurrences = dice.filter(element => element === value);
+                if (occurrences.length >= 5) {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        if (hasYams(dice)) {
+            total = 50;
+        }
+    }
+
+    if (operation === "Chance") {
+        total = dice.reduce((acc, value) => acc + value, 0);
+    }
+
+    return total;
 }
+
+let totalPoints = calculePoints("Yams", [6, 6, 6, 6, 6]);
+console.log("Total des points : " + totalPoints);
+
+/////////////
 
 let points = {
     'Total 1': 5,
