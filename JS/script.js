@@ -2,6 +2,7 @@
 // Laisser la fonction de calcul globale pour récupéré la valeur de l'opération choisie avec le boutton
 // => lancé de dé  => afficher uniquement les bouttons qui peuvent prendre l'opération => mettre à jour le score
 // une fois que j'ai affecté mon résultat à une ligne je désactive le boutton correspondant
+// Creer le tableau qui prend les résultat
 
 ///////////////////// EXERCICE 1 //////////////////////
 
