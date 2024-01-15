@@ -132,6 +132,7 @@ let full = calculePoints("Full", diceConserves)
 let petiteSuite = calculePoints("Petite Suite", diceConserves)
 let grandeSuite = calculePoints("Grande Suite", diceConserves)
 let yams = calculePoints("Yams", diceConserves)
+let chance = calculePoints("Chance", diceConserves)
 
 
 console.log("Total des dés 1 : " + total1);
@@ -146,13 +147,11 @@ console.log("Total Full : " + full);
 console.log("Total Petite Suite : " + petiteSuite);
 console.log("Total Grande Suite : " + grandeSuite);
 console.log("Total Yams : " + yams);
+console.log("Total Chance : " + chance);
 
-
-// Réussir à chopper tous les totaux et créer un objets points qui contient tous ces totaux
 
 
 // Fonction 2 Exercice 2
-
 let points = {
     'Total 1': total1,
     'Total 2': total2,
@@ -166,20 +165,22 @@ let points = {
     'Petite Suite': petiteSuite,
     'Grande Suite': grandeSuite,
     'Yams': yams,
-    'Chance': 0,
+    'Chance': chance,
     'Bonus': 0
 };
+console.log(points)
 
 
+// Fonction 3 Exercice 2 Afficher les points sur la page HTML
 function displayPoints() {
-    // Formater l'objet point en chaine de caratères avec l'objet global Object.
-    let resultatsOperations = Object.entries(points).map(([key, value]) => `${key} : ${value}<br>`).join(' \n');
+    // Formater l'objet points en chaine de caratères avec l'objet global Object.
+    let resultatsOperations = Object.entries(points).map(([key, value]) => `${key} : ${value}<br>`).join(" ");
     document.getElementById("afficherRepartitionPoints").innerHTML = resultatsOperations;
 }
 displayPoints();
 
 
-// FONCTION 3 EXERCICE 2
+// Fonction 3 Exercice 2 Calcul du bonus
 function checkBonus(points) {
     const sum = points['Total 1'] + points['Total 2'] + points['Total 3'] +
         points['Total 4'] + points['Total 5'] + points['Total 6'] + points['Brelan'] + points['Carré'] + points['Full'] + points['Petite Suite'] + points['Grande Suite'] + points['Yams'] + points['Chance'] + points['Bonus'];
@@ -189,10 +190,8 @@ function checkBonus(points) {
         points['Bonus'] = 0;
     }
     return points;
-
 }
 checkBonus(points);
-console.log(points)
 displayPoints(); // afficher les points à jour
 
 
