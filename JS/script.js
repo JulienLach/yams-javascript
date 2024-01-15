@@ -15,6 +15,19 @@ console.log("Résultat du lancer de dés :", des);
 // Fonction 2 Relance des dés
 function reRollTheDice(des) {
     let dice = des.map(() => Math.floor(Math.random() * 6) + 1);
+
+    let diceContainer = document.getElementById("dice-container"); // Attraper le container images dés
+    for (let i = 0; i < 5; i++) {
+        let diceValue = dice[i]; // Parcourir le tableau des dés relancé pour récupérer la valeur
+        let imgSource = `img/${diceValue}.png`; // Si valeur dé = 1 alors => 1.png
+
+        // Create an image element
+        let imgElement = document.createElement("img"); // créer l'élément img
+        imgElement.src = imgSource; // assigner la source de l'image
+
+        // Append the image element to the diceContainer
+        diceContainer.appendChild(imgElement);
+    }
     return dice;
 }
 let dice = reRollTheDice(des);
@@ -24,7 +37,6 @@ console.log("Nouveau jet de des : ", dice);
 function displayDice(dice) {
     document.getElementById("afficherDes").textContent = dice.join(' ')
 }
-displayDice(dice)
 
 
 ///////////////////// EXERCICE 2 //////////////////////
