@@ -136,22 +136,7 @@ let grandeSuite = calculePoints("Grande Suite", diceConserves)
 let yams = calculePoints("Yams", diceConserves)
 let chance = calculePoints("Chance", diceConserves)
 
-console.log("Total des dés 1 : " + total1);
-console.log("Total des dés 2 : " + total2);
-console.log("Total des dés 3 : " + total3);
-console.log("Total des dés 4 : " + total4);
-console.log("Total des dés 5 : " + total5);
-console.log("Total des dés 6 : " + total6);
-console.log("Total Brelan : " + brelan * 3);
-console.log("Total Carré : " + carre * 4);
-console.log("Total Full : " + full);
-console.log("Total Petite Suite : " + petiteSuite);
-console.log("Total Grande Suite : " + grandeSuite);
-console.log("Total Yams : " + yams);
-console.log("Total Chance : " + chance);
 
-
-// Fonction 2 Exercice 2 Afficher les points sur la page HTML
 // Créer l'objet points avec en clés les opérations et en valeur les valeurs des totaux de chaque opération
 let points = {
     'Total 1': total1,
@@ -169,11 +154,14 @@ let points = {
     'Chance': chance,
     'Bonus': 0
 };
-console.log(points)
 
+// Fonction 2 Exercice 2 Afficher les points sur la page HTML
 function displayPoints() {
-    // Formater l'objet points en chaine de caratères avec l'objet global Object.
-    let resultatsOperations = Object.entries(points).map(([key, value]) => `${key} : ${value}<br>`).join(" ");
+    // La méthode Object.entries() renvoie un tableau des propriétés propres énumérables d'un objet dont la clé est une chaîne de caractères, sous la forme de paires [clé, valeur],
+    let resultatsOperations = "";
+    for (let [key, value] of Object.entries(points)) {
+        resultatsOperations += `${key} : ${value}<br>`;
+    }
     document.getElementById("afficherRepartitionPoints").innerHTML = resultatsOperations;
 }
 displayPoints();
