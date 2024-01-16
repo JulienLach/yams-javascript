@@ -1,8 +1,8 @@
-// A FAIRE, assigner le résultat du lancé de dé à une opération et assigner le score de cette opération au total
+// A FAIRE, assigner le résultat du lancé de dé à une opération et assigner le score de cette opération au tableau
+// une fois que j'ai assigné ma combinaison, sauvegarder le tableau et désactiver le bouton de la combinaison déjà réalisée
 // Laisser la fonction de calcul globale pour récupéré la valeur de l'opération choisie avec le boutton
 // => lancé de dé  => afficher uniquement les bouttons qui peuvent prendre l'opération => mettre à jour le score
 // une fois que j'ai affecté mon résultat à une ligne je désactive le boutton correspondant
-// Creer le tableau qui prend les résultat
 
 ///////////////////// EXERCICE 1 //////////////////////
 
@@ -48,7 +48,6 @@ function displayDice(dice) {
 let diceConserves = displayDice(dice)
 
 // Trouver comment passer l'opération en paramètre dans la fonction
-
 // Fonction 1 Exercice 2 calculer les points --- à réécrire
 function calculePoints(operation, diceConserves) {
     let total = 0;
@@ -201,70 +200,83 @@ function assignerScoreBouton() {
     document.getElementById("total1").addEventListener("click", function () {
         if (total1 > 0) {
             document.getElementById("tableau1").innerText = total1
+            document.getElementById("total1").style.visibility = "hidden"
             updateTotalScore();
         }
     })
     document.getElementById("total2").addEventListener("click", function () {
         if (total2 > 0) {
             document.getElementById("tableau2").innerText = total2
+            updateTotalScore();
         }
     })
     document.getElementById("total3").addEventListener("click", function () {
         if (total3 > 0) {
             document.getElementById("tableau3").innerText = total3
+            updateTotalScore();
         }
     })
     document.getElementById("total4").addEventListener("click", function () {
         if (total4 > 0) {
             document.getElementById("tableau4").innerText = total4
         }
+        updateTotalScore();
     })
     document.getElementById("total5").addEventListener("click", function () {
         if (total5 > 0) {
             document.getElementById("tableau5").innerText = total5
         }
+        updateTotalScore();
     })
     document.getElementById("total6").addEventListener("click", function () {
         if (total6 > 0) {
             document.getElementById("tableau6").innerText = total6
         }
+        updateTotalScore();
     })
     document.getElementById("brelan").addEventListener("click", function () {
         if (brelan > 0) {
             document.getElementById("tableauBrelan").innerText = brelan
         }
+        updateTotalScore();
     })
     document.getElementById("carre").addEventListener("click", function () {
         if (carre > 0) {
             document.getElementById("tableauCarre").innerText = carre
         }
+        updateTotalScore();
     })
     document.getElementById("full").addEventListener("click", function () {
         if (full > 0) {
             document.getElementById("tableauFull").innerText = full
         }
+        updateTotalScore();
     })
     document.getElementById("petite-suite").addEventListener("click", function () {
         if (petiteSuite > 0) {
             document.getElementById("tableauPetiteSuite").innerText = petiteSuite
         }
+        updateTotalScore();
     })
     document.getElementById("grande-suite").addEventListener("click", function () {
         if (grandeSuite > 0) {
             document.getElementById("tableauGrandeSuite").innerText = grandeSuite
         }
+        updateTotalScore();
     })
     document.getElementById("yams").addEventListener("click", function () {
         if (yams > 0) {
             document.getElementById("tableauYams").innerText = yams
         }
+        updateTotalScore();
     })
     document.getElementById("chance").addEventListener("click", function () {
         if (chance > 0) {
             document.getElementById("tableauChance").innerText = chance
         }
+        updateTotalScore();
     })
-    // Function to update the total score
+    // Fonction mise à jour de la ligne Score du tableau, rappelée à chaque bouton cliqué pour mettre  à jour le Score
     function updateTotalScore() {
         const totalScore = total1 + total2 + total3 + total4 + total5 + total6 + brelan + carre + full + petiteSuite + grandeSuite + yams + chance;
         document.getElementById("tableauScore").innerText = totalScore;
