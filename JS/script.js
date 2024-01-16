@@ -152,7 +152,7 @@ let yams = calculePoints("Yams", diceConserves)
 let chance = calculePoints("Chance", diceConserves)
 
 
-// Fonction afficher les bouton qui sont affectable avec le résultat des dés, visibility hidden pour les boutons
+// Fonction afficher les bouton qui sont affectable avec le résultat des dés, visibility hidden pour les boutons qui ne sont pas affectable
 function afficherBoutons() {
     if (total1 === 0) {
         document.getElementById("total1").style.visibility = "hidden";
@@ -196,6 +196,21 @@ function afficherBoutons() {
 }
 afficherBoutons();
 
+// Fonction assigner le score d'un bouton cliqué à une ligne du tableau
+function assignerScoreBouton() {
+    document.getElementById("total1").addEventListener("click", function () {
+        if (total1 > 0) {
+            document.getElementById("tableau1").innerText = total1
+        }
+    })
+    document.getElementById("total2").addEventListener("click", function () {
+        if (total2 > 0) {
+            document.getElementById("tableau2").innerText = total2
+        }
+    })
+}
+assignerScoreBouton();
+
 // Créer l'objet points avec en clés les opérations et en valeur les valeurs des totaux de chaque opération
 let points = {
     'Total 1': total1,
@@ -224,7 +239,6 @@ function displayPoints() {
     document.getElementById("afficherRepartitionPoints").innerHTML = resultatsOperations;
 }
 displayPoints();
-
 
 // Fonction 3 Exercice 2 Calcul du bonus et si bonus ajout au total des points
 function checkBonus(points) { //
