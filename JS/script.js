@@ -1,10 +1,13 @@
-// A FAIRE, assigner le résultat du lancé de dé à une opération et assigner le score de cette opération au tableau
-// une fois que j'ai assigné ma combinaison, sauvegarder le tableau et désactiver le bouton de la combinaison déjà réalisée
+// A FAIRE :
+// Une fois que j'ai assigné mes dés à ma combinison, sauvegarder la valeur dans le tableau et désactiver 
+// le bouton de la combinaison déjà réalisée pour le prochain lancé
 // Laisser la fonction de calcul globale pour récupéré la valeur de l'opération choisie avec le boutton
 // => lancé de dé  => afficher uniquement les bouttons qui peuvent prendre l'opération => mettre à jour le score
-// une fois que j'ai affecté mon résultat à une ligne je désactive le boutton correspondant
+// une fois que j'ai affecté mon résultat à une ligne je désactive le boutton correspondant => relancer les dés jusqu'à
+// obtenir toutes les combinaisons
 
-// pour le boutton lancer les dés vider la div html et afficher les nouveau dés
+// Faire un boutton lancer les dés et vider la div html des anciens dés et afficher les nouveau dés 
+// pour cocher une nouvelles combinaisons
 
 ///////////////////// EXERCICE 1 //////////////////////
 
@@ -198,7 +201,7 @@ function afficherBoutons() {
 }
 afficherBoutons();
 
-// Fonction assigner le score d'un bouton cliqué à une ligne du tableau des totaux
+// Fonction assigner le score d'un bouton cliqué à une ligne du tableau des totaux et fonction updateTotalScore dernière ligne tableau
 function assignerScoreBouton() {
     document.getElementById("total1").addEventListener("click", function () {
         if (total1 > 0) {
