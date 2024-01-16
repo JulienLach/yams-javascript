@@ -24,7 +24,7 @@ function relancerLesDes() {
     boutonRelancerLesDes.addEventListener("click", function () {
         // Initier le lancé de dés
         dice = reRollTheDice(des);
-        // Appeler toutes les fonctoins pour les mettres à jour
+        // Appeler toutes les fonctoins pour les mettres à jour à chaque lancement de dés
         updateDiceVisuals(dice);
         displayDice(dice);
         console.log(dice)
