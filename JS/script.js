@@ -9,31 +9,66 @@
 // Faire un boutton lancer les dés et vider la div html des anciens dés et afficher les nouveau dés 
 // pour cocher une nouvelles combinaisons
 
+// reste a faire, en deux jets: premier jet => categorieser opération dans tablea, => localStorage valeur =>
+// ensuite relancer les dés => afficher les nouvelles opé idspo moins celle d'avant enlevé => catégoriser la nouvelle opé
+// la stocker dans le tableau, TERMINÉ
+
+// Mettre toutes les autres fonctions dans la fonction de relance pour mettre à jour tout à chaque Relancer les dés
+
 ///////////////////// EXERCICE 1 //////////////////////
 
 
 // Fonction relancer les dés sans actualiser la page
 function relancerLesDes() {
-    let boutonRelancerLesDes = document.getElementById("relancerLesDes")
+    let boutonRelancerLesDes = document.getElementById("relancerLesDes");
     boutonRelancerLesDes.addEventListener("click", function () {
+        // Initier le lancé de dés
         dice = reRollTheDice(des);
-        let diceContainer = document.getElementById("dice-container");
-        diceContainer.innerHTML = "";
-        for (let i = 0; i < 5; i++) {
-            let diceValue = dice[i]; // Parcourir le tableau des dés relancé pour récupérer la valeur
-            let imgSource = `img/${diceValue}.png`; // Si valeur dé = 1 alors => 1.png
-            let imgElement = document.createElement("img"); // créer l'élément img
-            imgElement.src = imgSource; // Assigner la source de l'image à l'élément
-            diceContainer.appendChild(imgElement); // Attacher l'élément au container des dés
-        }
+        // Appeler toutes les fonctoins pour les mettres à jour
+        updateDiceVisuals(dice);
+        displayDice(dice);
         console.log(dice)
-        displayDice(dice)
-
-        diceConserves = dice;
-        return dice
-    })
+        updatePoints();
+        displayPoints();
+        checkBonus(points);
+        displayScore(points);
+        afficherBoutons();
+    });
 }
-relancerLesDes()
+relancerLesDes();
+
+// Fonction mettre à jour les images des dés
+function updateDiceVisuals(dice) {
+    let diceContainer = document.getElementById("dice-container");
+    diceContainer.innerHTML = "";
+    for (let i = 0; i < 5; i++) {
+        let diceValue = dice[i];
+        let imgSource = `img/${diceValue}.png`;
+        let imgElement = document.createElement("img");
+        imgElement.src = imgSource;
+        diceContainer.appendChild(imgElement);
+    }
+}
+
+// Fonction et mettre à jour et caculer les nouveaux points avec le nouveau jet de dés
+function updatePoints() {
+    points = {
+        'Total 1': calculePoints("Total 1", dice),
+        'Total 2': calculePoints("Total 2", dice),
+        'Total 3': calculePoints("Total 3", dice),
+        'Total 4': calculePoints("Total 4", dice),
+        'Total 5': calculePoints("Total 5", dice),
+        'Total 6': calculePoints("Total 6", dice),
+        'Brelan': calculePoints("Brelan", dice),
+        'Carré': calculePoints("Carré", dice),
+        'Full': calculePoints("Full", dice),
+        'Petite Suite': calculePoints("Petite Suite", dice),
+        'Grande Suite': calculePoints("Grande Suite", dice),
+        'Yams': calculePoints("Yams", dice),
+        'Chance': calculePoints("Chance", dice),
+        'Bonus': 0
+    };
+}
 
 // Fonction 1 Premier lancé
 function rollTheDice() {
@@ -56,7 +91,6 @@ function reRollTheDice(des) {
     for (let i = 0; i < 5; i++) {
         let diceValue = dice[i]; // Parcourir le tableau des dés relancé pour récupérer la valeur
         let imgSource = `img/${diceValue}.png`; // Si valeur dé = 1 alors => 1.png
-
         let imgElement = document.createElement("img"); // créer l'élément img
         imgElement.src = imgSource; // Assigner la source de l'image à l'élément
         diceContainer.appendChild(imgElement); // Attacher l'élément au container des dés
@@ -323,7 +357,8 @@ function assignerScoreBouton() {
 
     // Fonction mise à jour de la ligne Score du tableau, rappelée à chaque bouton cliqué pour mettre  à jour le Score
     function updateTotalScore() {
-        let totalScore = parseInt((document.getElementById("tableau1").innerHTML))
+        let totalScore =
+            parseInt((document.getElementById("tableau1").innerHTML))
             + parseInt((document.getElementById("tableau2").innerHTML))
             + parseInt((document.getElementById("tableau3").innerHTML))
             + parseInt((document.getElementById("tableau4").innerHTML))
