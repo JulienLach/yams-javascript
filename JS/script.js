@@ -9,8 +9,8 @@
 // Faire un boutton lancer les dés et vider la div html des anciens dés et afficher les nouveau dés 
 // pour cocher une nouvelles combinaisons
 
-// reste a faire, en deux jets: premier jet => categorieser opération dans tablea, => localStorage valeur =>
-// ensuite relancer les dés => afficher les nouvelles opé idspo moins celle d'avant enlevé => catégoriser la nouvelle opé
+// reste a faire, en deux jets: premier jet => categorieser opération dans tableau => localStorage valeur =>
+// ensuite relancer les dés => afficher les nouvelles opérations avec en moins celle d'avant enlevé => catégoriser la nouvelle opé
 // la stocker dans le tableau, TERMINÉ
 
 // Mettre toutes les autres fonctions dans la fonction de relance pour mettre à jour tout à chaque Relancer les dés
@@ -24,7 +24,7 @@ function relancerLesDes() {
     boutonRelancerLesDes.addEventListener("click", function () {
         // Initier le lancé de dés
         dice = reRollTheDice(des);
-        // Appeler toutes les fonctoins pour les mettres à jour à chaque lancement de dés
+        // Appeler toutes les fonctions pour les mettres à jour à chaque lancement de dés
         updateDiceVisuals(dice);
         displayDice(dice);
         console.log(dice)
@@ -101,7 +101,7 @@ function reRollTheDice(des) {
 let dice = reRollTheDice(des);
 console.log("Nouveau jet de des : ", dice);
 
-// Fonction 3 Afficher les dés
+// Fonction 3 Afficher les dés  
 function displayDice(dice) {
     document.getElementById("afficherDes").textContent = dice.join(' ')
 }
@@ -218,6 +218,7 @@ let chance = calculePoints("Chance", diceConserves)
 
 // Fonction afficher les bouton qui sont affectable avec le résultat des dés, visibility hidden pour les boutons qui ne sont pas affectable
 function afficherBoutons() {
+    console.log("Afficher Boutons called");
     if (total1 === 0) {
         document.getElementById("total1").style.visibility = "hidden";
     }
