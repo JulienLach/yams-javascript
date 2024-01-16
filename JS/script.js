@@ -22,6 +22,7 @@ console.log("Résultat du lancer de dés :", des);
 function reRollTheDice(des) {
     let dice = des.map(() => Math.floor(Math.random() * 6) + 1);
 
+    // Boucle afficher l'image des dés
     let diceContainer = document.getElementById("dice-container"); // Attraper le container images dés
     for (let i = 0; i < 5; i++) {
         let diceValue = dice[i]; // Parcourir le tableau des dés relancé pour récupérer la valeur
@@ -276,9 +277,10 @@ function assignerScoreBouton() {
         }
         updateTotalScore();
     })
+
     // Fonction mise à jour de la ligne Score du tableau, rappelée à chaque bouton cliqué pour mettre  à jour le Score
     function updateTotalScore() {
-        const totalScore = total1 + total2 + total3 + total4 + total5 + total6 + brelan + carre + full + petiteSuite + grandeSuite + yams + chance;
+        let totalScore = total1 + total2 + total3 + total4 + total5 + total6 + brelan + carre + full + petiteSuite + grandeSuite + yams + chance;
         document.getElementById("tableauScore").innerText = totalScore;
     }
 }
