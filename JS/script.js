@@ -4,6 +4,8 @@
 // => lancé de dé  => afficher uniquement les bouttons qui peuvent prendre l'opération => mettre à jour le score
 // une fois que j'ai affecté mon résultat à une ligne je désactive le boutton correspondant
 
+// pour le boutton lancer les dés vider la div html et afficher les nouveau dés
+
 ///////////////////// EXERCICE 1 //////////////////////
 
 // Fonction 1 Premier lancé
@@ -200,87 +202,113 @@ afficherBoutons();
 function assignerScoreBouton() {
     document.getElementById("total1").addEventListener("click", function () {
         if (total1 > 0) {
-            document.getElementById("tableau1").innerText = total1
+            document.getElementById("tableau1").innerHTML = total1
             document.getElementById("total1").style.visibility = "hidden"
             updateTotalScore();
         }
     })
     document.getElementById("total2").addEventListener("click", function () {
         if (total2 > 0) {
-            document.getElementById("tableau2").innerText = total2
+            document.getElementById("tableau2").innerHTML = total2
+            document.getElementById("total2").style.visibility = "hidden"
             updateTotalScore();
         }
     })
     document.getElementById("total3").addEventListener("click", function () {
         if (total3 > 0) {
             document.getElementById("tableau3").innerText = total3
+            document.getElementById("total3").style.visibility = "hidden"
             updateTotalScore();
         }
     })
     document.getElementById("total4").addEventListener("click", function () {
         if (total4 > 0) {
             document.getElementById("tableau4").innerText = total4
+            document.getElementById("total4").style.visibility = "hidden"
+            updateTotalScore();
         }
-        updateTotalScore();
     })
     document.getElementById("total5").addEventListener("click", function () {
         if (total5 > 0) {
             document.getElementById("tableau5").innerText = total5
+            document.getElementById("total5").style.visibility = "hidden"
+            updateTotalScore();
         }
-        updateTotalScore();
     })
     document.getElementById("total6").addEventListener("click", function () {
         if (total6 > 0) {
             document.getElementById("tableau6").innerText = total6
+            document.getElementById("total6").style.visibility = "hidden"
+            updateTotalScore();
         }
-        updateTotalScore();
     })
     document.getElementById("brelan").addEventListener("click", function () {
         if (brelan > 0) {
             document.getElementById("tableauBrelan").innerText = brelan
+            document.getElementById("brelan").style.visibility = "hidden"
+
+            updateTotalScore();
         }
-        updateTotalScore();
     })
     document.getElementById("carre").addEventListener("click", function () {
         if (carre > 0) {
             document.getElementById("tableauCarre").innerText = carre
+            document.getElementById("carre").style.visibility = "hidden"
+            updateTotalScore();
         }
-        updateTotalScore();
     })
     document.getElementById("full").addEventListener("click", function () {
         if (full > 0) {
             document.getElementById("tableauFull").innerText = full
+            document.getElementById("full").style.visibility = "hidden"
+            updateTotalScore();
         }
-        updateTotalScore();
     })
     document.getElementById("petite-suite").addEventListener("click", function () {
         if (petiteSuite > 0) {
             document.getElementById("tableauPetiteSuite").innerText = petiteSuite
+            document.getElementById("petite-suite").style.visibility = "hidden"
+            updateTotalScore();
         }
-        updateTotalScore();
     })
     document.getElementById("grande-suite").addEventListener("click", function () {
         if (grandeSuite > 0) {
             document.getElementById("tableauGrandeSuite").innerText = grandeSuite
+            document.getElementById("grande-suite").style.visibility = "hidden"
+            updateTotalScore();
         }
-        updateTotalScore();
     })
     document.getElementById("yams").addEventListener("click", function () {
         if (yams > 0) {
             document.getElementById("tableauYams").innerText = yams
+            document.getElementById("yams").style.visibility = "hidden"
+            updateTotalScore();
         }
-        updateTotalScore();
     })
     document.getElementById("chance").addEventListener("click", function () {
         if (chance > 0) {
             document.getElementById("tableauChance").innerText = chance
+            document.getElementById("chance").style.visibility = "hidden"
+            updateTotalScore();
         }
-        updateTotalScore();
     })
 
     // Fonction mise à jour de la ligne Score du tableau, rappelée à chaque bouton cliqué pour mettre  à jour le Score
     function updateTotalScore() {
-        let totalScore = total1 + total2 + total3 + total4 + total5 + total6 + brelan + carre + full + petiteSuite + grandeSuite + yams + chance;
+        let totalScore = parseInt((document.getElementById("tableau1").innerHTML))
+            + parseInt((document.getElementById("tableau2").innerHTML))
+            + parseInt((document.getElementById("tableau3").innerHTML))
+            + parseInt((document.getElementById("tableau4").innerHTML))
+            + parseInt((document.getElementById("tableau5").innerHTML))
+            + parseInt((document.getElementById("tableau6").innerHTML))
+            + parseInt((document.getElementById("tableauBonus").innerHTML))
+            + parseInt((document.getElementById("tableauBrelan").innerHTML))
+            + parseInt((document.getElementById("tableauCarre").innerHTML))
+            + parseInt((document.getElementById("tableauFull").innerHTML))
+            + parseInt((document.getElementById("tableauPetiteSuite").innerHTML))
+            + parseInt((document.getElementById("tableauGrandeSuite").innerHTML))
+            + parseInt((document.getElementById("tableauYams").innerHTML))
+            + parseInt((document.getElementById("tableauChance").innerHTML))
         document.getElementById("tableauScore").innerText = totalScore;
     }
 }
