@@ -11,6 +11,26 @@
 
 ///////////////////// EXERCICE 1 //////////////////////
 
+
+// Fonction relancer les dés sans actualiser la page
+function relancerLesDes() {
+    let boutonRelancerLesDes = document.getElementById("relancerLesDes")
+    boutonRelancerLesDes.addEventListener("click", function () {
+        dice = reRollTheDice(des);
+        let diceContainer = document.getElementById("dice-container");
+        diceContainer.innerHTML = "";
+        for (let i = 0; i < 5; i++) {
+            let diceValue = dice[i]; // Parcourir le tableau des dés relancé pour récupérer la valeur
+            let imgSource = `img/${diceValue}.png`; // Si valeur dé = 1 alors => 1.png
+            let imgElement = document.createElement("img"); // créer l'élément img
+            imgElement.src = imgSource; // Assigner la source de l'image à l'élément
+            diceContainer.appendChild(imgElement); // Attacher l'élément au container des dés
+        }
+        displayDice(dice)
+    })
+}
+relancerLesDes()
+
 // Fonction 1 Premier lancé
 function rollTheDice() {
     let dice = [];
