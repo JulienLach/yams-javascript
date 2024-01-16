@@ -26,7 +26,11 @@ function relancerLesDes() {
             imgElement.src = imgSource; // Assigner la source de l'image à l'élément
             diceContainer.appendChild(imgElement); // Attacher l'élément au container des dés
         }
+        console.log(dice)
         displayDice(dice)
+
+        diceConserves = dice;
+        return dice
     })
 }
 relancerLesDes()
@@ -59,6 +63,7 @@ function reRollTheDice(des) {
     }
     return dice;
 }
+
 let dice = reRollTheDice(des);
 console.log("Nouveau jet de des : ", dice);
 
