@@ -196,11 +196,12 @@ function afficherBoutons() {
 }
 afficherBoutons();
 
-// Fonction assigner le score d'un bouton cliqué à une ligne du tableau
+// Fonction assigner le score d'un bouton cliqué à une ligne du tableau des totaux
 function assignerScoreBouton() {
     document.getElementById("total1").addEventListener("click", function () {
         if (total1 > 0) {
             document.getElementById("tableau1").innerText = total1
+            updateTotalScore();
         }
     })
     document.getElementById("total2").addEventListener("click", function () {
@@ -208,6 +209,66 @@ function assignerScoreBouton() {
             document.getElementById("tableau2").innerText = total2
         }
     })
+    document.getElementById("total3").addEventListener("click", function () {
+        if (total3 > 0) {
+            document.getElementById("tableau3").innerText = total3
+        }
+    })
+    document.getElementById("total4").addEventListener("click", function () {
+        if (total4 > 0) {
+            document.getElementById("tableau4").innerText = total4
+        }
+    })
+    document.getElementById("total5").addEventListener("click", function () {
+        if (total5 > 0) {
+            document.getElementById("tableau5").innerText = total5
+        }
+    })
+    document.getElementById("total6").addEventListener("click", function () {
+        if (total6 > 0) {
+            document.getElementById("tableau6").innerText = total6
+        }
+    })
+    document.getElementById("brelan").addEventListener("click", function () {
+        if (brelan > 0) {
+            document.getElementById("tableauBrelan").innerText = brelan
+        }
+    })
+    document.getElementById("carre").addEventListener("click", function () {
+        if (carre > 0) {
+            document.getElementById("tableauCarre").innerText = carre
+        }
+    })
+    document.getElementById("full").addEventListener("click", function () {
+        if (full > 0) {
+            document.getElementById("tableauFull").innerText = full
+        }
+    })
+    document.getElementById("petite-suite").addEventListener("click", function () {
+        if (petiteSuite > 0) {
+            document.getElementById("tableauPetiteSuite").innerText = petiteSuite
+        }
+    })
+    document.getElementById("grande-suite").addEventListener("click", function () {
+        if (grandeSuite > 0) {
+            document.getElementById("tableauGrandeSuite").innerText = grandeSuite
+        }
+    })
+    document.getElementById("yams").addEventListener("click", function () {
+        if (yams > 0) {
+            document.getElementById("tableauYams").innerText = yams
+        }
+    })
+    document.getElementById("chance").addEventListener("click", function () {
+        if (chance > 0) {
+            document.getElementById("tableauChance").innerText = chance
+        }
+    })
+    // Function to update the total score
+    function updateTotalScore() {
+        const totalScore = total1 + total2 + total3 + total4 + total5 + total6 + brelan + carre + full + petiteSuite + grandeSuite + yams + chance;
+        document.getElementById("tableauScore").innerText = totalScore;
+    }
 }
 assignerScoreBouton();
 
@@ -234,7 +295,7 @@ function displayPoints() {
     // La méthode Object.entries() renvoie un tableau des propriétés propres énumérables d'un objet dont la clé est une chaîne de caractères, sous la forme de paires [clé, valeur],
     let resultatsOperations = "";
     for (let [key, value] of Object.entries(points)) {
-        resultatsOperations += `${key} : ${value}<br>`;
+        resultatsOperations += `${key} : ${value} / `;
     }
     document.getElementById("afficherRepartitionPoints").innerHTML = resultatsOperations;
 }
