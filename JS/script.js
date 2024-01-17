@@ -22,17 +22,17 @@
 function relancerLesDes() {
     let boutonRelancerLesDes = document.getElementById("relancerLesDes");
     boutonRelancerLesDes.addEventListener("click", function () {
-        // Initier le lancé de dés
+        // Initiate the dice roll
         dice = reRollTheDice(des);
-        // Appeler toutes les fonctions pour les mettres à jour à chaque lancement de dés
+        // Call all functions to update at each dice roll
         updateDiceVisuals(dice);
         displayDice(dice);
-        console.log(dice)
-        updatePoints();
-        displayPoints();
-        checkBonus(points);
-        displayScore(points);
-        afficherBoutons();
+        console.log(dice);
+        updatePoints(); // Update points based on the new dice
+        displayPoints(); // Display updated points
+        checkBonus(points); // Check for bonus
+        displayScore(points); // Display the total score
+        afficherBoutons(); // Update button visibility based on new points
     });
 }
 relancerLesDes();
